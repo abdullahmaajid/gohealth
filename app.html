@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoHealth Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Additional custom styles */
+    body, .navbar, .footer {
+        background-color: #f9f9f9 !important; /* Changed background color */
+        background-image: url('background.jpg');
+        font-family: "HM Sans Bold","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif; /* Changed font family */
+    }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: #555 !important; /* Changed text color */
+      }
+
+      .greeting {
+        font-weight: bold;
+        color: #555; /* Changed text color */
+      }
+
+      .datetime {
+        font-style: italic;
+        color: #555; /* Changed text color */
+      }
+
+      /* Blur glass effect for cards */
+      .card {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      /* Text color for card titles and text */
+      .card-title, .card-text {
+        color: #333; /* Changed text color */
+      }
+
+      .card {
+          transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+          transform: scale(1.05);
+        }
+
+      /* Button styling */
+      .explore-btn {
+
+        background-color: transparent; /* Removed background color */
+        border: none;
+        color: #555;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block; /* Changed display to inline-block */
+        font-size: 16px;
+        margin-top: auto;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+        position: relative; /* Added position relative */
+      }
+
+      /* Arrow icon */
+      .explore-btn::after {
+        content: '→';
+        position: absolute;
+        left: 130%; /* Mengatur panah berada di tengah tombol secara awal */
+        top: 50%;
+        transform: translate(-50%, -50%); /* Menggeser panah ke tengah tombol */
+        transition: 0.3s ease; /* Menggunakan transition untuk animasi */
+      }
+
+      /* Arrow icon animation */
+      .explore-btn:hover::after {
+        left: calc(150% + 10px); /* Menggeser panah ke kanan saat tombol dihover */
+      }
+
+      /* Ensure cards have equal height */
+      #card-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Mengatur jarak antar kartu */
+      }
+      /* Style for each card */
+      .col {
+      flex: 0 0 calc(33.333% - 20px); /* Mengatur lebar kartu agar 3x3 */
+      margin-bottom: 20px; /* Mengatur jarak bawah antar kartu */
+      }
+
+      /* Ensure images inside cards are cropped */
+      .card-img-top {
+        object-fit: cover;
+        height: 400px; /* Set the height of the image */
+      }
+
+      /* Style greeting box */
+      .greeting-box {
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      /* Style navbar brand */
+      .navbar-brand {
+        color: #555 !important; /* Changed text color */
+      }
+
+      footer {
+        background-color: #ccc; /* Warna abu-abu */
+        color: #555; /* Warna teks putih */
+        padding: 20px 0; /* Padding atas dan bawah 20px, tanpa padding samping */
+      }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="app.html">GoHealth</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dbd.html">DBD</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dbd.html">DBD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ispa.html">ISPA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tb.html">TB</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="malaria.html">MALARIA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pjpd,html">PJPD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="diabetes.html">DIABETES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="diare.html">DIARE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="penyakitkulit.html">PENYAKIT KULIT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hepatitis.html">HEPATITIS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="asma.html">ASMA</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+      
+    </div>
+  </nav>
+
+  
+  <header class=" p-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="greeting-box">
+            <span class="greeting">Selamat datang di GoHealth!</span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    
+
+  </header>
+  <div class="container my-4">
+
+
+
+
+
+    <!-- Carousel -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="DBD">
+          <a href="dbd.html"><img src="DBD.png" class="d-block w-100" alt="DBD"></a>
+        </div>
+        <div class="carousel-item" id="ISPA">
+          <a href="ispa.html"><img src="ISPA.png" class="d-block w-100" alt="ISPA"></a>
+        </div>
+        <div class="carousel-item" id="TB">
+          <a href="tb.html"><img src="TB.png" class="d-block w-100" alt="TB"></a>
+        </div>
+        <div class="carousel-item" id="MALARIA">
+          <a href="malaria.html"><img src="MALARIA.png" class="d-block w-100" alt="MALARIA"></a>
+        </div>
+        <div class="carousel-item" id="PJPD">
+          <a href="pjpd.html"><img src="PJPD.png" class="d-block w-100" alt="PJPD"></a>
+        </div>
+        <div class="carousel-item" id="DIABETES">
+          <a href="diabetes.html"><img src="DIABETES.png" class="d-block w-100" alt="DIABETES"></a>
+        </div>
+        <div class="carousel-item" id="DIARE">
+          <a href="diare.html"><img src="DIARE.png" class="d-block w-100" alt="DIARE"></a>
+        </div>
+        <div class="carousel-item" id="PENYAKITKULIT">
+          <a href="penyakitkulit.html"><img src="PENYAKITKULIT.png" class="d-block w-100" alt="PENYAKITKULIT"></a>
+        </div>
+        <div class="carousel-item" id="HEPATITIS">
+          <a href="hepatitis.html"><img src="HEPATITIS.png" class="d-block w-100" alt="HEPATITIS"></a>
+        </div>
+        <div class="carousel-item" id="ASMA">
+          <a href="asma.html"><img src="ASMA.png" class="d-block w-100" alt="ASMA"></a>
+        </div>
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4" id="card-row">
+<!-- Card 1 -->
+<div class="col">
+  <div class="card">
+    <a href="dbd.html"><img src="DBD.png" class="card-img-top" alt="Demam Berdarah Dengue"></a>
+    <div class="card-body">
+      <h5 class="card-title">Demam Berdarah Dengue (DBD)</h5>
+      <p class="card-text">Ciri-ciri: Demam tinggi, nyeri otot dan sendi, ruam kulit, mual, muntah, dan penurunan jumlah trombosit.</p>
+      <a href="dbd.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 2 -->
+<div class="col">
+  <div class="card">
+    <a href="ispa.html"><img src="ISPA.png" class="card-img-top" alt="Infeksi Saluran Pernapasan Atas"></a>
+    <div class="card-body">
+      <h5 class="card-title">Infeksi Saluran Pernapasan Atas (ISPA)</h5>
+      <p class="card-text">Ciri-ciri: Batuk, pilek, sakit tenggorokan, dan demam ringan.</p>
+      <a href="ispa.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 3 -->
+<div class="col">
+  <div class="card">
+    <a href="tb.html"><img src="TB.png" class="card-img-top" alt="Tuberkulosis"></a>
+    <div class="card-body">
+      <h5 class="card-title">Tuberkulosis (TB)</h5>
+      <p class="card-text">Ciri-ciri: Batuk kronis, demam, penurunan berat badan, dan keringat malam.</p>
+      <a href="tb.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 4 -->
+<div class="col">
+  <div class="card">
+    <a href="malaria.html"><img src="MALARIA.png" class="card-img-top" alt="Malaria"></a>
+    <div class="card-body">
+      <h5 class="card-title">Malaria</h5>
+      <p class="card-text">Ciri-ciri: Demam, menggigil, sakit kepala, mual, dan muntah.</p>
+      <a href="malaria.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="col">
+  <div class="card">
+    <a href="pjpd.html"><img src="PJPD.png" class="card-img-top" alt="Penyakit Jantung dan Pembuluh Darah"></a>
+    <div class="card-body">
+      <h5 class="card-title">Penyakit Jantung dan Pembuluh Darah</h5>
+      <p class="card-text">Ciri-ciri: Nyeri dada, sesak napas, nyeri pada lengan atau punggung, dan palpitasi.</p>
+      <a href="pjpd.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 6 -->
+<div class="col">
+  <div class="card">
+    <a href="diabetes.html"><img src="DIABETES.png" class="card-img-top" alt="Diabetes"></a>
+    <div class="card-body">
+      <h5 class="card-title">Diabetes</h5>
+      <p class="card-text">Ciri-ciri: Kadar gula darah tinggi.</p>
+      <a href="diabetes.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 7 -->
+<div class="col">
+  <div class="card">
+    <a href="diare.html"><img src="DIARE.png" class="card-img-top" alt="Diare"></a>
+    <div class="card-body">
+      <h5 class="card-title">Diare</h5>
+      <p class="card-text">Ciri-ciri: Infeksi saluran pencernaan.</p>
+      <a href="diare.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 8 -->
+<div class="col">
+  <div class="card">
+    <a href="penyakitkulit.html"><img src="PENYAKITKULIT.png" class="card-img-top" alt="Penyakit Kulit"></a>
+    <div class="card-body">
+      <h5 class="card-title">Penyakit Kulit</h5>
+      <p class="card-text">Ciri-ciri: Infeksi jamur kulit, eksim, dan jerawat.</p>
+      <a href="penyakitkulit.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 9 -->
+<div class="col">
+  <div class="card">
+    <a href="hepatitis.html"><img src="HEPATITIS.png" class="card-img-top" alt="Hepatitis"></a>
+    <div class="card-body">
+      <h5 class="card-title">Hepatitis</h5>
+      <p class="card-text">Ciri-ciri: Peradangan hati.</p>
+      <a href="hepatitis.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+<!-- Card 10 -->
+<div class="col">
+  <div class="card">
+    <a href="asma.html"><img src="ASMA.png" class="card-img-top" alt="Asma"></a>
+    <div class="card-body">
+      <h5 class="card-title">Asma</h5>
+      <p class="card-text">Ciri-ciri: Kesulitan bernafas, napas tersengal-sengal, dan dada terasa tertekan.</p>
+      <a href="asma.html" class="explore-btn">Explore</a> <!-- Perbaikan tautan -->
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+  <footer class=" text-center p-3 mt-5">
+    <p>&copy; 2024 GoHealth</p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Ambil elemen input pencarian
+    const searchInput = document.getElementById('searchInput');
+  
+    // Tambahkan event listener untuk input pencarian
+    searchInput.addEventListener('input', function() {
+      // Ambil nilai pencarian
+      const searchText = this.value.toLowerCase().trim();
+  
+      // Ambil semua elemen kartu
+      const cards = document.querySelectorAll('.card');
+  
+      // Loop melalui setiap kartu untuk memeriksa ketersediaan nama dalam teks pencarian
+      cards.forEach(card => {
+        // Ambil teks nama kartu
+        const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
+  
+        // Periksa apakah nama kartu cocok dengan teks pencarian
+        if (cardTitle.includes(searchText)) {
+          // Tampilkan kartu jika cocok
+          card.style.display = 'block';
+        } else {
+          // Sembunyikan kartu jika tidak cocok
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // Ambil semua elemen kartu
+    const cards = document.querySelectorAll('.card');
+
+    // Fungsi untuk menemukan tinggi maksimum dari semua kartu
+    function findMaxHeight(cards) {
+      let maxHeight = 0;
+      cards.forEach(card => {
+        const height = card.offsetHeight;
+        if (height > maxHeight) {
+          maxHeight = height;
+        }
+      });
+      return maxHeight;
+    }
+
+    // Atur tinggi semua kartu ke tinggi maksimum
+    function setCardHeight(cards, height) {
+      cards.forEach(card => {
+        card.style.height = height + 'px';
+      });
+    }
+
+    // Panggil fungsi-fungsi di atas saat dokumen selesai dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+      const maxHeight = findMaxHeight(cards);
+      setCardHeight(cards, maxHeight);
+    });
+  </script>
+
+  
+
+</body>
+</html>

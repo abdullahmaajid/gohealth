@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Day In My Life Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Additional custom styles */
+    body, .navbar, .footer {
+        background-color: #f9f9f9 !important; /* Changed background color */
+        background-image: url('background.jpg');
+        font-family: "HM Sans Bold","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif; /* Changed font family */
+    }
+      
+      .navbar-dark .navbar-nav .nav-link {
+        color: #555 !important; /* Changed text color */
+      }
+  
+      .greeting {
+        font-weight: bold;
+        color: #555; /* Changed text color */
+      }
+  
+      .datetime {
+        font-style: italic;
+        color: #555; /* Changed text color */
+      }
+  
+      /* Blur glass effect for cards */
+      .card {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+      }
+  
+      /* Text color for card titles and text */
+      .card-title, .card-text {
+        color: #333; /* Changed text color */
+      }
+  
+      .card {
+          transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+          transform: scale(1.05);
+        }
+  
+      /* Button styling */
+      .explore-btn {
+
+        background-color: transparent; /* Removed background color */
+        border: none;
+        color: #555;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block; /* Changed display to inline-block */
+        font-size: 16px;
+        margin-top: auto;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+        position: relative; /* Added position relative */
+      }
+  
+      /* Arrow icon */
+      .explore-btn::after {
+        content: '→';
+        position: absolute;
+        left: 130%; /* Mengatur panah berada di tengah tombol secara awal */
+        top: 50%;
+        transform: translate(-50%, -50%); /* Menggeser panah ke tengah tombol */
+        transition: 0.3s ease; /* Menggunakan transition untuk animasi */
+      }
+  
+      /* Arrow icon animation */
+      .explore-btn:hover::after {
+        left: calc(150% + 10px); /* Menggeser panah ke kanan saat tombol dihover */
+      }
+  
+      /* Ensure cards have equal height */
+      #card-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      
+  
+      .col {
+        flex: 1;
+      }
+  
+      /* Ensure images inside cards are cropped */
+      .card-img-top {
+        object-fit: cover;
+        height: 400px; /* Set the height of the image */
+      }
+  
+      /* Style greeting box */
+      .greeting-box {
+        padding: 10px;
+        border-radius: 5px;
+      }
+      
+      /* Style navbar brand */
+      .navbar-brand {
+        color: #555 !important; /* Changed text color */
+      }
+
+      footer {
+        background-color: #ccc; /* Warna abu-abu */
+        color: #555; /* Warna teks putih */
+        padding: 20px 0; /* Padding atas dan bawah 20px, tanpa padding samping */
+      }
+  </style>
+</head>
+<>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">A Day In My Life</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#editing">Editing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#music">Music</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#coding">Coding</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>ss
+  <header class=" p-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="greeting-box">
+            <span class="greeting">Selamat pagi!</span>
+          </div>
+        </div>
+        <div class="col text-end">
+          <span class="datetime">30 April 2024 09:00</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container my-4">
+    <!-- Carousel -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="editing">
+          <img src="mainediting.png" class="d-block w-100" alt="Editing">
+        </div>
+        <div class="carousel-item" id="music">
+          <img src="mainmusic.png" class="d-block w-100" alt="Music">
+        </div>
+        <div class="carousel-item" id="coding">
+          <img src="maincoding.png" class="d-block w-100" alt="Coding">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4" id="card-row">
+      <div class="col">
+        <div class="card">
+          <img src="editing.jpg" class="card-img-top" alt="Editing">
+          <div class="card-body">
+            <h5 class="card-title">Editing</h5>
+            <p class="card-text">I'm spending my time editing photos and videos.</p>
+            <a href="#" class="explore-btn">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="music.jpg" class="card-img-top" alt="Music">
+          <div class="card-body">
+            <h5 class="card-title">Music</h5>
+            <p class="card-text">I'm enjoying my time creating and to music.</p>
+            <a href="#" class="explore-btn">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="coding2.jpg" class="card-img-top" alt="Coding">
+          <div class="card-body">
+            <h5 class="card-title">Coding</h5>
+            <p class="card-text">I'm coding and building awesome projects.</p>
+            <a href="#" class="explore-btn">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class=" text-center p-3 mt-5">
+    <p>&copy; 2024 A Day In My Life</p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Ambil elemen panah
+    const arrow = document.querySelector('.explore-btn::after');
+
+    // Tambahkan event listener untuk menangani animasi saat kursor berada di atas tombol
+    arrow.parentElement.addEventListener('mouseenter', function() {
+      // Tambahkan class 'animate' untuk memulai animasi
+      arrow.classList.add('animate');
+    });
+
+    // Tambahkan event listener untuk menghentikan animasi saat kursor meninggalkan tombol
+    arrow.parentElement.addEventListener('mouseleave', function() {
+      // Hapus class 'animate' untuk menghentikan animasi
+      arrow.classList.remove('animate');
+    });
+  </script>
+  <script>
+    // Ambil semua elemen kartu
+    const cards = document.querySelectorAll('.card');
+  
+    // Fungsi untuk menemukan tinggi maksimum dari semua kartu
+    function findMaxHeight(cards) {
+      let maxHeight = 0;
+      cards.forEach(card => {
+        const height = card.offsetHeight;
+        if (height > maxHeight) {
+          maxHeight = height;
+        }
+      });
+      return maxHeight;
+    }
+  
+    // Atur tinggi semua kartu ke tinggi maksimum
+    function setCardHeight(cards, height) {
+      cards.forEach(card => {
+        card.style.height = height + 'px';
+      });
+    }
+  
+    // Panggil fungsi-fungsi di atas saat dokumen selesai dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+      const maxHeight = findMaxHeight(cards);
+      setCardHeight(cards, maxHeight);
+    });
+  </script>
+
+  <script></script>
+  
+  
+</body>
+</html>

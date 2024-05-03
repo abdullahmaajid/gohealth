@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demam Berdarah Dengue (DBD)</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Additional custom styles */
+    body, .navbar, .footer {
+        background-color: #f9f9f9 !important; /* Changed background color */
+        background-image: url('background.jpg');
+        font-family: "HM Sans Bold","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif; /* Changed font family */
+    }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: #555 !important; /* Changed text color */
+      }
+
+      .greeting {
+        font-weight: bold;
+        color: #555; /* Changed text color */
+      }
+
+      .datetime {
+        font-style: italic;
+        color: #555; /* Changed text color */
+      }
+
+      .container {
+        margin-top: 20px; /* Added margin to separate content from header */
+      }
+
+      /* Text color for headings and paragraphs */
+      h1, h2, p {
+        color: #333; /* Changed text color */
+      }
+
+      /* Ensure images have max width */
+      img {
+        max-width: 100%;
+      }
+
+      /* Style for card-like sections */
+      .section {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      footer {
+        background-color: #ccc;
+        color: #555;
+        padding: 20px 0;
+        text-align: center; /* Center align footer text */
+      }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="app.html">GoHealth</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="dbd.html">DBD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ispa.html">ISPA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tb.html">TB</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="malaria.html">MALARIA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pjpd.html">PJPD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="diabetes.html">DIABETES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="diare.html">DIARE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="penyakitkulit.html">PENYAKIT KULIT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hepatitis.html">HEPATITIS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="asma.html">ASMA</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="p-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="greeting-box">
+            <span class="greeting">Selamat pagi!</span>
+          </div>
+        </div>
+        <div class="col text-end">
+          <span class="datetime">30 April 2024 09:00</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="section">
+      <img src="DBD.png" alt="Demam Berdarah Dengue" class="img-fluid">
+      <h1>Demam Berdarah Dengue (DBD)</h1>
+      <h2>Ciri-ciri DBD:</h2>
+      <p>
+        Demam tinggi, nyeri otot dan sendi, ruam kulit, mual, muntah, dan penurunan jumlah trombosit.
+      </p>
+      <h2>Cara Penanganan DBD:</h2>
+      <p>
+        Istirahat yang cukup, minum banyak cairan, dan kunjungi dokter untuk perawatan lebih lanjut.
+      </p>
+      <h2>Obat untuk Menyembuhkan DBD:</h2>
+      <p>
+        Parasetamol untuk mengurangi demam dan nyeri, serta rehidrasi untuk mencegah dehidrasi.
+      </p>
+    </div>
+  </div>
+  <footer class="text-center p-3 mt-5">
+    <p>&copy; 2024 GoHealth</p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
